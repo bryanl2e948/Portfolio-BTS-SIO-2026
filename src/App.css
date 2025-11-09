@@ -28,6 +28,90 @@
   color: #61dafb;
 }
 
+.doigt_bas{
+    height: 20px;
+    width: 20px;
+}
+.btn-decouvrir {
+    position: absolute;
+    bottom: 450px;
+    left: 50%;
+    margin-left: -90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.decouvrir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: black;
+    border: none;
+    border-radius: 10px;
+    color: #6129FF;
+    width: 180px;
+    padding: 10px 15px;
+    box-shadow: 1px 7px 10px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.profile-animated {
+    --border-angle: 0deg;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: radial-gradient(circle, #111827 60%, transparent 60%);
+}
+
+.profile-animated:before,
+.profile-animated:after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: 100%;
+    animation: border-angle-rotate 4s infinite linear;
+    z-index: -1;
+}
+
+.profile-animated:before {
+    background: repeating-conic-gradient(
+            from var(--border-angle),
+            #6129FF,
+            #6129FF 30deg,
+            #a855f7 calc(360deg / 6)
+    )
+    border-box;
+}
+
+.profile-animated:after {
+    background: repeating-conic-gradient(
+            from calc(var(--border-angle) * -1),
+            #8b5cf6,
+            #1f2937 60deg
+    )
+    border-box;
+}
+
+@keyframes border-angle-rotate {
+    from { --border-angle: 0deg; }
+    to { --border-angle: 360deg; }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +120,5 @@
     transform: rotate(360deg);
   }
 }
+
+
